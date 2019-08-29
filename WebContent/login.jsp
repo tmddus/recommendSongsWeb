@@ -3,7 +3,3 @@
 <jsp:forward page="templateTest.jsp">
 	<jsp:param name="CONTENTPAGE" value="loginProc.jsp" />
 </jsp:forward>
-
-<%
-	System.out.print("log");
-%>

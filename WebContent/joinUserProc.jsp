@@ -1,12 +1,36 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+
+
+<script>
+function submitForm(){
+	
+	if(document.join.name.value=="" || document.join.id.value=="" 
+		|| document.join.pw.value==""){
+	alert("모든 항목을 입력해주세요");
+	return;
+	}
+	document.join.submit();
+}
+	
+	
+
+</script>
+
 </head>
 <body>
-	ȸ������ ������
+	회원가입 페이지
+	<form action="join_db_proc.jsp" name="join" method="post">
+		<input type="text" name="name" placeholder="이름"><br>
+		<input type="text" name="id" placeholder="아이디"><br>
+		<input type="password" name="pw" placeholder="비밀번호"><br><br>
+		<input type="button" value="회원가입" onclick="submitForm()">
+		
+	</form>
 </body>
 </html>
