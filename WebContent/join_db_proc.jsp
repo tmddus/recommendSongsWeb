@@ -1,8 +1,6 @@
 <%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.Connection" import="java.sql.SQLException"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -14,10 +12,6 @@
     String id = request.getParameter("id");
     String pw = request.getParameter("pw");
     
-    
-    Connection conn = null; // DB연결된 상태(세션)을 담은 객체
-    PreparedStatement pstm = null;  // SQL 문을 나타내는 객체
-    ResultSet rs = null;  // 쿼리문을 날린것에 대한 반환값을 담을 객체
     
     try {
     	Connection connection = null;
@@ -31,10 +25,14 @@
         
         %>
     	
-    	<jsp:forward page="main.jsp"/>
+    	<script>
+    	
+    		alert("회원가입에 성공하였습니다");
+    		location.href="main.jsp";
+    	
+    	</script>
     	
     	<%
-    	
     	
     	
     }catch(Exception e){
@@ -43,7 +41,7 @@
     	<script>
     	
     		alert("회원가입에 실패했습니다");
-				
+			history.go(-1);
 		</script>
     <%	
     }
