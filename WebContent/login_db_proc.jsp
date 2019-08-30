@@ -13,15 +13,20 @@
     UserDAO Dao = UserDAO.getInstance();
     
     int check = Dao.loginCheck(id, pw);	
+    String msg;
     
     if(check == 1){
     	
     	session.setAttribute("currentID", id);
+    	msg = "main.jsp";
     	
+    }else if(check==0){
+    	msg = "login.jsp?msg=0";
+    }else{
+    	msg = "login.jsp?msg=-1";
     }
     
-    response.sendRedirect(String.valueOf(check));
-   
+    response.sendRedirect(msg);
     
     
     %>
